@@ -1,24 +1,47 @@
-import logo from './logo.svg';
 import './App.css';
+import InputField from './components/InputFied';
+import Coach from './components/Coach';
+import Footer from './components/Footer';
+import { useState,useEffect } from 'react';
 
 function App() {
+
+     const [Seats,setSeats]=useState([]);
+   
+
+      useEffect(()=>{
+
+         
+         console.log("hello");
+         fetch('https://train-ticket-ewqj.onrender.com/').
+         then(response=>response.json()).
+         then(data=>setSeats(data));
+
+
+      },[])
+
+     
+        const update=()=>{
+
+         fetch('https://train-ticket-ewqj.onrender.com/').
+         then(response=>response.json()).
+         then(data=>setSeats(data));
+           
+        }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+     <div >
+
+               
+
+           <h1 className="text"> Ticket Booking System </h1>
+              <InputField update={update}/>
+ 
+              <Coach Seats={Seats}/>
+             
+              <Footer/>
+
+
+     </div>
   );
 }
 
