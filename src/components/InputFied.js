@@ -3,14 +3,15 @@ import Button from '@mui/material/Button';
 import './InputField.css'
 
 
-function InputField({update}) {
+function InputField({update,BookingRequest}) {
 
      const [seat,setSeats]=useState(0);
      
         const BookSeat=async ()=>{
 
-
-           const response =await fetch('https://train-ticket-ewqj.onrender.com/bookSeats',{
+              
+           BookingRequest(true);
+           const response =await fetch('http://localhost:3001/bookSeats',{
 
              method:'PUT',
              headers:{
@@ -24,6 +25,8 @@ function InputField({update}) {
             
             const data=await response.json();
              
+              
+              BookingRequest(false);
                 alert(data);
 
                  update();

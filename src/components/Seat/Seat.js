@@ -2,7 +2,7 @@ import React from "react";
 import './Seat.css'
  function Seat(props){
 
-        //    console.log(p);
+        //     console.log(p);
            if(props.Status==="Available"){
 
              return (

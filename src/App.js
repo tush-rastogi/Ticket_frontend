@@ -3,7 +3,7 @@ import InputField from './components/InputFied';
 import Coach from './components/Coach';
 import Footer from './components/Footer';
 import { useState,useEffect } from 'react';
-import { HalfMalf } from 'react-spinner-animated';
+import { HalfMalf ,BarLoader} from 'react-spinner-animated';
 
 
 import 'react-spinner-animated/dist/index.css'
@@ -12,13 +12,14 @@ import 'react-spinner-animated/dist/index.css'
 function App() {
 
      const [Seats,setSeats]=useState([]);
+     const [isLoading,setisLoading]=useState(false);
    
 
       useEffect(()=>{
 
          
          console.log("hello");
-         fetch('https://train-ticket-ewqj.onrender.com/').
+         fetch('http://localhost:3001/').
          then(response=>response.json()).
          then(data=>setSeats(data));
 
@@ -28,11 +29,18 @@ function App() {
      
         const update=()=>{
 
-         fetch('https://train-ticket-ewqj.onrender.com/').
+         fetch('http://localhost:3001/').
          then(response=>response.json()).
          then(data=>setSeats(data));
            
         }
+
+       
+      const BookingRequest=(value)=>{
+            
+          setisLoading(value);
+      }
+
 
 
           if(Seats.length==0)
@@ -42,12 +50,38 @@ function App() {
 
                 <div>
                <h1 className="text"> Ticket Booking System </h1>
-               <InputField update={update}/>              
-               <HalfMalf text={"Loading..."}  center={true} width={"150px"} height={"150px"}/>
+             
+               <HalfMalf text={"Loading..Please Wait"}  center={true} width={"150px"} height={"150px"}/>
                </div>
                  
              )
           }
+
+           else if(isLoading==true){
+
+            return (
+
+               <div>
+     
+                 <h1 className="text"> Ticket Booking System </h1>
+                   <InputField update={update} BookingRequest={BookingRequest}/>
+      
+                       
+                   <BarLoader text={"Wait a Minute.."}  center={true} width={"150px"} height={"150px"} />
+
+                   <Coach Seats={Seats}/>
+     
+                     
+                  
+                   <Footer/>
+                          
+     
+               </div>
+                     
+                  )
+
+              
+           }
 
           else{
 
@@ -56,10 +90,9 @@ function App() {
           <div>
 
             <h1 className="text"> Ticket Booking System </h1>
-              <InputField update={update}/>
+              <InputField update={update} BookingRequest={BookingRequest}/>
  
                   
-                   
 
               <Coach Seats={Seats}/>
              
