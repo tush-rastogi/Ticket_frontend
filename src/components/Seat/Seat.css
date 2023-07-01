@@ -21,7 +21,7 @@
 }
 
 
-@media only screen and (max-width: 400px) {
+@media only screen and (min-width:370px ) and (max-width: 470px) {
     /* For mobile phones: */
     /* [class*="col-"] {
       width: 100%;
@@ -46,6 +46,37 @@
         margin:8px;
         padding: 10px;
         font-size: 12px;
+
+    }
+
+  }
+
+
+@media only screen and  (max-width: 369px) {
+    /* For mobile phones: */
+    /* [class*="col-"] {
+      width: 100%;
+    } */
+
+    [class='square1']{
+
+        width:12px;
+        height: 12px;
+        background-color: rgb(64, 216, 89);
+        margin:8px;
+        padding: 10px;
+        font-size: 8px;
+
+    }
+
+    [class='square2']{
+
+        width:12px;
+        height: 12px;
+        background-color: rgb(209, 42, 42);
+        margin:8px;
+        padding: 10px;
+        font-size: 8px;
 
     }
 

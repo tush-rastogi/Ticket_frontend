@@ -3,6 +3,11 @@ import InputField from './components/InputFied';
 import Coach from './components/Coach';
 import Footer from './components/Footer';
 import { useState,useEffect } from 'react';
+import { HalfMalf } from 'react-spinner-animated';
+
+
+import 'react-spinner-animated/dist/index.css'
+
 
 function App() {
 
@@ -28,21 +33,44 @@ function App() {
          then(data=>setSeats(data));
            
         }
-  return (
-     <div >
 
-               
 
-           <h1 className="text"> Ticket Booking System </h1>
+          if(Seats.length==0)
+          {
+
+             return (
+
+                <div>
+               <h1 className="text"> Ticket Booking System </h1>
+               <InputField update={update}/>              
+               <HalfMalf text={"Loading..."}  center={true} width={"150px"} height={"150px"}/>
+               </div>
+                 
+             )
+          }
+
+          else{
+
+             return (
+
+          <div>
+
+            <h1 className="text"> Ticket Booking System </h1>
               <InputField update={update}/>
  
+                  
+                   
+
               <Coach Seats={Seats}/>
              
               <Footer/>
+                     
 
-
-     </div>
-  );
+          </div>
+                
+             )
+          }
+  
 }
 
 export default App;

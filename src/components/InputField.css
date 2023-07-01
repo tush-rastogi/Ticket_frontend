@@ -3,11 +3,14 @@
       display: flex;
        justify-content: center;
        gap:10px;
+       flex-wrap: wrap;
        /* padding: 10px; */
 }
 
 input{
     border-radius: 20px;
     padding: 8px;
+    width: 100%;
+    max-width: 250px;
 }
 
