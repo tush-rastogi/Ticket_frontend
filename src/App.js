@@ -43,7 +43,7 @@ function App() {
 
 
 
-          if(Seats.length==0)
+          if(Seats.length===0)
           {
 
              return (
@@ -57,7 +57,7 @@ function App() {
              )
           }
 
-           else if(isLoading==true){
+           else if(isLoading===true){
 
             return (
 
