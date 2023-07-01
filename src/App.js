@@ -19,7 +19,7 @@ function App() {
 
          
          console.log("hello");
-         fetch('http://localhost:3001/').
+         fetch('https://train-ticket-ewqj.onrender.com/').
          then(response=>response.json()).
          then(data=>setSeats(data));
 
@@ -29,7 +29,7 @@ function App() {
      
         const update=()=>{
 
-         fetch('http://localhost:3001/').
+         fetch('https://train-ticket-ewqj.onrender.com/').
          then(response=>response.json()).
          then(data=>setSeats(data));
            

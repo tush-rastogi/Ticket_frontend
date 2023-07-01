@@ -11,7 +11,7 @@ function InputField({update,BookingRequest}) {
 
               
            BookingRequest(true);
-           const response =await fetch('http://localhost:3001/bookSeats',{
+           const response =await fetch('/https://train-ticket-ewqj.onrender.com/bookSeats',{
 
              method:'PUT',
              headers:{
