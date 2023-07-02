@@ -16,7 +16,7 @@ import './Seat.css'
              )
            }
 
-           else
+           else 
            {
 
             return (
@@ -30,6 +30,8 @@ import './Seat.css'
             )
                  
            }
+
+           
        
      
 

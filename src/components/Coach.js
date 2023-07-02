@@ -4,7 +4,6 @@ import Row from "./Row";
 
  function Coach(props){
 
-
      const {Seats}=props;
     
            
@@ -13,9 +12,6 @@ import Row from "./Row";
               return <Row key={index} SeatDetails={item[1]}/>
 
            })
-        
-
-
       return(
      <div>
 
